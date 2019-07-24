@@ -15,7 +15,11 @@ const App: React.FC = () => {
       >
         Search
       </Button>
-      <Input onChange={e => setSearch(e.target.value)} value={search} />
+      <Input
+        placeholder="Type a movie title"
+        onChange={e => setSearch(e.target.value)}
+        value={search}
+      />
     </div>
   );
 };

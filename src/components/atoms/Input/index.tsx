@@ -11,15 +11,17 @@ interface InputProps {
   type?: InputType;
   loading?: boolean;
   value?: string;
+  placeholder?: string;
 }
 function Input(props: InputProps) {
   const {
     style,
+    color = 'primary',
+    loading = 'false',
+    placeholder,
+    type = 'text',
     value,
     onChange,
-    color = 'primary',
-    type = 'text',
-    loading = 'false',
   } = props;
 
   const classes = classNames({
@@ -31,9 +33,10 @@ function Input(props: InputProps) {
   return (
     <input
       style={style}
-      value={value}
-      type={type}
       className={classes}
+      placeholder={placeholder}
+      type={type}
+      value={value}
       onChange={onChange}
     />
   );
