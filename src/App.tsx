@@ -4,12 +4,16 @@ import { useDispatch } from './store';
 import Button from './components/atoms/Button';
 import Input from './components/atoms/Input';
 import BaseLayout from './components/layouts/BaseLayout';
+import Title from './components/atoms/Title';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = React.useState('');
   return (
-    <BaseLayout header={<div>YAMA</div>} footer={<div>© Federico Moretti</div>}>
+    <BaseLayout
+      header={<Title level={1}>YAMA</Title>}
+      footer={<div>© Federico Moretti</div>}
+    >
       <Button
         color="primary"
         onClick={() => dispatch({ type: 'GET_MOVIES', payload: search })}
