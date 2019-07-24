@@ -2,17 +2,20 @@ import React from 'react';
 import { useDispatch } from './store';
 
 import Button from './components/atoms/Button';
+import Input from './components/atoms/Input';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+  const [search, setSearch] = React.useState('');
   return (
     <div>
       <Button
         color="primary"
-        onClick={() => dispatch({ type: 'GET_MOVIES', payload: 'spider man' })}
+        onClick={() => dispatch({ type: 'GET_MOVIES', payload: search })}
       >
-        Click Me
+        Search
       </Button>
+      <Input onChange={e => setSearch(e.target.value)} value={search} />
     </div>
   );
 };
