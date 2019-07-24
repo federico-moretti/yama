@@ -6,10 +6,10 @@ interface ButtonProps {
   style?: React.CSSProperties;
   onClick: () => void;
   children: React.ReactNode;
-  color: Colors;
+  color?: Colors;
 }
 function Button(props: ButtonProps) {
-  const { style, onClick, color, children } = props;
+  const { style, onClick, color = 'primary', children } = props;
 
   const classes = classNames({
     button: true,
