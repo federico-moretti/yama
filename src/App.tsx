@@ -3,12 +3,13 @@ import { useDispatch } from './store';
 
 import Button from './components/atoms/Button';
 import Input from './components/atoms/Input';
+import BaseLayout from './components/layouts/BaseLayout';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = React.useState('');
   return (
-    <div>
+    <BaseLayout header={<div>Header</div>} footer={<div>Footer</div>}>
       <Button
         color="primary"
         onClick={() => dispatch({ type: 'GET_MOVIES', payload: search })}
@@ -20,7 +21,7 @@ const App: React.FC = () => {
         onChange={e => setSearch(e.target.value)}
         value={search}
       />
-    </div>
+    </BaseLayout>
   );
 };
 
