@@ -2,6 +2,9 @@ import { MoviesState, MoviesActionTypes, GET_MOVIES_SUCCEEDED } from './types';
 
 const initialState: MoviesState = {
   movies: [],
+  page: null,
+  totalPages: null,
+  totalResults: null,
 };
 
 export function moviesReducer(
@@ -11,7 +14,11 @@ export function moviesReducer(
   switch (action.type) {
     case GET_MOVIES_SUCCEEDED:
       return {
-        movies: action.payload,
+        movies: action.payload.movies,
+        page: action.payload.page,
+        totalPages: action.payload.totalPages,
+        totalResults: action.payload.totalResults,
+        ...state,
       };
 
     default:

@@ -2,6 +2,9 @@ import { Movie } from '../../commons/interfaces';
 
 export interface MoviesState {
   movies: Movie[];
+  page: number | null;
+  totalPages: number | null;
+  totalResults: number | null;
 }
 
 export const GET_MOVIES = 'GET_MOVIES';
@@ -14,7 +17,12 @@ export interface GetMovies {
 
 export interface GetMoviesSucceeded {
   type: typeof GET_MOVIES_SUCCEEDED;
-  payload: Movie[];
+  payload: {
+    movies: Movie[];
+    page: number | null;
+    totalPages: number | null;
+    totalResults: number | null;
+  };
 }
 
 export type MoviesActionTypes = GetMovies | GetMoviesSucceeded;
