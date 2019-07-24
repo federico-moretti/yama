@@ -9,7 +9,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = React.useState('');
   return (
-    <BaseLayout header={<div>Header</div>} footer={<div>Footer</div>}>
+    <BaseLayout header={<div>YAMA</div>} footer={<div>© Federico Moretti</div>}>
       <Button
         color="primary"
         onClick={() => dispatch({ type: 'GET_MOVIES', payload: search })}
