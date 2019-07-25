@@ -21,10 +21,12 @@ function SearchBox(props: SearchBoxProps) {
   return (
     <div style={searchBoxStyle}>
       <Input
+        focusOnMount={true}
         placeholder={placeholder}
         style={inputStyle}
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={setValue}
+        onEnter={() => onSearch(value)}
       />
       <Button onClick={() => onSearch(value)}>Search</Button>
     </div>
