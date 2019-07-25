@@ -14,11 +14,11 @@ export function moviesReducer(
   switch (action.type) {
     case GET_MOVIES_SUCCEEDED:
       return {
+        ...state,
         movies: action.payload.movies,
         page: action.payload.page,
         totalPages: action.payload.totalPages,
         totalResults: action.payload.totalResults,
-        ...state,
       };
 
     default:
