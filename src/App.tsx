@@ -7,6 +7,8 @@ import BaseLayout from './components/layouts/BaseLayout';
 import Title from './components/atoms/Title';
 import Box from './components/atoms/Box';
 import Paragraph from './components/atoms/Paragraph';
+import Label from './components/atoms/Label';
+import SearchBox from './components/molecules/SearchBox';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const App: React.FC = () => {
       header={<Title level={1}>YAMA</Title>}
       footer={<div>© Federico Moretti</div>}
     >
-      <Button
+      {/* <Button
         color="primary"
         onClick={() => dispatch({ type: 'GET_MOVIES', payload: search })}
       >
@@ -26,9 +28,11 @@ const App: React.FC = () => {
         placeholder="Type a movie title"
         onChange={e => setSearch(e.target.value)}
         value={search}
-      />
+      /> */}
+      <SearchBox onSearch={v => console.log(v)} />
       <Box>
-        <Paragraph>hello!</Paragraph>
+        <Label>Hello:</Label>
+        <Paragraph>Fede</Paragraph>
       </Box>
     </BaseLayout>
   );
