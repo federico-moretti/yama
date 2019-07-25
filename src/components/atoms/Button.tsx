@@ -6,6 +6,7 @@ interface ButtonProps {
   style?: React.CSSProperties;
   color?: Colors;
   loading?: boolean;
+  outlined?: boolean;
   onClick: () => void;
   children: React.ReactNode;
 }
@@ -15,6 +16,7 @@ function Button(props: ButtonProps) {
     onClick,
     color = 'primary',
     loading = false,
+    outlined = false,
     children,
   } = props;
 
@@ -22,6 +24,7 @@ function Button(props: ButtonProps) {
     button: true,
     [colorsMap[color]]: true,
     'is-loading': loading,
+    'is-outlined': outlined,
   });
 
   return (
