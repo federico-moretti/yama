@@ -7,10 +7,14 @@ interface FooterProps {
 function Footer(props: FooterProps) {
   const { style } = props;
 
+  const actualYear = new Date().getFullYear();
+  const years = 2019 === actualYear ? 2019 : `2019-${actualYear}`;
+  const text = `© Federico Moretti ${years} • All Rights Reserved`;
+
   return (
     <footer style={style} className="footer">
       <div className="content has-text-centered">
-        <Paragraph>© Federico Moretti</Paragraph>
+        <Paragraph>{text}</Paragraph>
       </div>
     </footer>
   );
