@@ -11,15 +11,17 @@ const inputStyle = {
 };
 
 interface SearchBoxProps {
+  placeholder?: string;
   onSearch: (search: string) => void;
 }
 function SearchBox(props: SearchBoxProps) {
-  const { onSearch } = props;
+  const { placeholder, onSearch } = props;
   const [value, setValue] = React.useState('');
 
   return (
     <div style={searchBoxStyle}>
       <Input
+        placeholder={placeholder}
         style={inputStyle}
         value={value}
         onChange={e => setValue(e.target.value)}
