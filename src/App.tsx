@@ -5,6 +5,8 @@ import Button from './components/atoms/Button';
 import Input from './components/atoms/Input';
 import BaseLayout from './components/layouts/BaseLayout';
 import Title from './components/atoms/Title';
+import Box from './components/atoms/Box';
+import Paragraph from './components/atoms/Paragraph';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -25,6 +27,9 @@ const App: React.FC = () => {
         onChange={e => setSearch(e.target.value)}
         value={search}
       />
+      <Box>
+        <Paragraph>hello!</Paragraph>
+      </Box>
     </BaseLayout>
   );
 };

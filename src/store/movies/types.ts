@@ -1,4 +1,4 @@
-import { Movie } from '../../commons/interfaces';
+import { Movie } from '../../commons/types';
 
 export interface MoviesState {
   movies: Movie[];

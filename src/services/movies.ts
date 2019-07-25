@@ -1,4 +1,4 @@
-import { Movie } from '../commons/interfaces';
+import { Movie } from '../commons/types';
 import { MOVIE_DB_KEY } from '../commons/constants';
 
 function movieAdapter(rawMovie: any): Movie {
