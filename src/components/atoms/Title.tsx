@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
+import { Size, Level } from '../../commons/types';
 
 interface TitleProps {
-  level: 1 | 2 | 3 | 4 | 5 | 6;
-  size?: 1 | 2 | 3 | 4 | 5 | 6;
+  level: Level;
+  size?: Size;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }

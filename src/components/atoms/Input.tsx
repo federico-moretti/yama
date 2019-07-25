@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Colors, colorsMap } from '../../../commons/types';
+import { Colors, colorsMap } from '../../commons/types';
 
 type InputType = 'text' | 'password' | 'email' | 'tel';
 
