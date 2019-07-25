@@ -7,17 +7,22 @@ function* watchGetMovies() {
 }
 
 function* fetchMovies(action: GetMovies) {
-  // TS does not infer the yield calls yet
-  // so we must define the variable type
-  const data: MoviesByNameResponse = yield call(
-    MoviesService.searchByName,
-    action.payload
-  );
+  try {
+    // TS does not infer the yield calls yet
+    // so we must define the variable type
+    const data: MoviesByNameResponse = yield call(
+      MoviesService.searchByName,
+      action.payload
+    );
 
-  yield put<GetMoviesSucceeded>({
-    type: 'GET_MOVIES_SUCCEEDED',
-    payload: data,
-  });
+    yield put<GetMoviesSucceeded>({
+      type: 'GET_MOVIES_SUCCEEDED',
+      payload: data,
+    });
+  } catch (error) {
+    // TODO: warn user
+    console.log(error);
+  }
 }
 
 export default function* root() {
