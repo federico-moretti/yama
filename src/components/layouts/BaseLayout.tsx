@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 interface BaseLayoutProps {
   style?: React.CSSProperties;
@@ -15,7 +14,9 @@ const Header = ({ children }: { children: React.ReactNode }) => (
 
 const mainStyle = {};
 const Main = ({ children }: { children: React.ReactNode }) => (
-  <div style={mainStyle}>{children}</div>
+  <div style={mainStyle} className="section">
+    {children}
+  </div>
 );
 
 const footerStyle = {};
@@ -26,12 +27,8 @@ const Footer = ({ children }: { children: React.ReactNode }) => (
 function BaseLayout(props: BaseLayoutProps) {
   const { style, header, children, footer } = props;
 
-  const classes = classNames({
-    section: true,
-  });
-
   return (
-    <div style={style} className={classes}>
+    <div style={style}>
       <Header>{header}</Header>
       <Main>{children}</Main>
       <Footer>{footer}</Footer>

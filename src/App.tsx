@@ -9,15 +9,13 @@ import Box from './components/atoms/Box';
 import Paragraph from './components/atoms/Paragraph';
 import Label from './components/atoms/Label';
 import SearchBox from './components/molecules/SearchBox';
+import Header from './components/organisms/Header';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = React.useState('');
   return (
-    <BaseLayout
-      header={<Title level={1}>YAMA</Title>}
-      footer={<div>© Federico Moretti</div>}
-    >
+    <BaseLayout header={<Header />} footer={<div>© Federico Moretti</div>}>
       {/* <Button
         color="primary"
         onClick={() => dispatch({ type: 'GET_MOVIES', payload: search })}

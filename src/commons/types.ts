@@ -6,10 +6,6 @@ export type Colors =
   | 'warning'
   | 'danger';
 
-export type Size = 1 | 2 | 3 | 4 | 5 | 6;
-
-export type Level = 1 | 2 | 3 | 4 | 5 | 6;
-
 export const colorsMap = {
   primary: 'is-primary',
   link: 'is-link',
@@ -17,6 +13,19 @@ export const colorsMap = {
   success: 'is-success',
   warning: 'is-warning',
   danger: 'is-danger',
+};
+
+export type Size = 1 | 2 | 3 | 4 | 5 | 6;
+
+export type Level = 1 | 2 | 3 | 4 | 5 | 6;
+
+export type Alignment = 'center' | 'justify' | 'left' | 'right';
+
+export const alignmentMap = {
+  center: 'has-text-centered',
+  justify: 'has-text-justified',
+  left: 'has-text-left',
+  right: 'has-text-right',
 };
 
 export interface Movie {
