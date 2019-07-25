@@ -1,15 +1,14 @@
 import React from 'react';
-import { useDispatch } from './store';
+import { useDispatch, useSelector } from './store';
 import BaseLayout from './components/layouts/BaseLayout';
-import Box from './components/atoms/Box';
-import Paragraph from './components/atoms/Paragraph';
-import Label from './components/atoms/Label';
 import SearchBox from './components/molecules/SearchBox';
 import Header from './components/organisms/Header';
 import Footer from './components/organisms/Footer';
+import MovieBoxList from './components/organisms/MovieBoxList';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+  const { movies } = useSelector(state => state.moviesState);
 
   return (
     <BaseLayout header={<Header />} footer={<Footer />}>
@@ -17,10 +16,7 @@ const App: React.FC = () => {
         placeholder="Type a title of a movie"
         onSearch={v => dispatch({ type: 'GET_MOVIES', payload: v })}
       />
-      <Box>
-        <Label>Hello:</Label>
-        <Paragraph>Fede</Paragraph>
-      </Box>
+      <MovieBoxList movies={movies} />
     </BaseLayout>
   );
 };

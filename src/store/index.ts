@@ -15,7 +15,7 @@ import rootSaga from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 
 const rootReducer = combineReducers({
-  movies: moviesReducer,
+  moviesState: moviesReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
