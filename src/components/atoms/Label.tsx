@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Size } from '../../commons/types';
+import { Sizes } from '../../commons/types';
 
 interface LabelProps {
-  size?: Size;
+  size?: Sizes;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }

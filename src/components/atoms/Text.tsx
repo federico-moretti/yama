@@ -1,17 +1,19 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Size } from '../../commons/types';
+import { Sizes, Colors } from '../../commons/types';
 
 interface TextProps {
-  size?: Size;
+  size?: Sizes;
+  color?: Colors;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }
 function Text(props: TextProps) {
-  const { style, size = 6, children } = props;
+  const { style, size = 6, color, children } = props;
 
   const classes = classNames({
-    [`is-size-${size}`]: Boolean(size),
+    [`is-size-${size}`]: true,
+    [`has-text-${color}`]: Boolean(color),
   });
 
   return (

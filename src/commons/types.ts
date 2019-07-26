@@ -15,13 +15,13 @@ export const colorsMap = {
   danger: 'is-danger',
 };
 
-export type Size = 1 | 2 | 3 | 4 | 5 | 6;
+export type Sizes = 1 | 2 | 3 | 4 | 5 | 6;
 
-export type Level = 1 | 2 | 3 | 4 | 5 | 6;
+export type Levels = 1 | 2 | 3 | 4 | 5 | 6;
 
-export type Alignment = 'center' | 'justify' | 'left' | 'right';
+export type Alignments = 'center' | 'justify' | 'left' | 'right';
 
-export const alignmentMap = {
+export const alignmentsMap = {
   center: 'has-text-centered',
   justify: 'has-text-justified',
   left: 'has-text-left',

@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Size, Level, Alignment, alignmentMap } from '../../commons/types';
+import { Sizes, Levels, Alignments, alignmentsMap } from '../../commons/types';
 
 interface SubtitleProps {
-  level: Level;
-  size?: Size;
-  alignment?: Alignment;
+  level: Levels;
+  size?: Sizes;
+  alignment?: Alignments;
   style?: React.CSSProperties;
   children: React.ReactNode;
 }
@@ -15,7 +15,7 @@ function Subtitle(props: SubtitleProps) {
   const classes = classNames({
     subtitle: true,
     [`is-${size}`]: Boolean(size),
-    [alignmentMap[alignment]]: true,
+    [alignmentsMap[alignment]]: true,
   });
 
   return React.createElement(
