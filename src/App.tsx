@@ -8,8 +8,8 @@ import MovieBoxList from './components/organisms/MovieBoxList';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
-  const { movies } = useSelector(state => state.moviesState);
-  console.log('app movies:', movies);
+  const { movies, error } = useSelector(({ moviesState }) => moviesState);
+  console.log({ movies, error });
 
   return (
     <BaseLayout header={<Header />} footer={<Footer />}>

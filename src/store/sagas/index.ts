@@ -1,6 +1,10 @@
 import { fork, call, put, takeLatest } from 'redux-saga/effects';
 import MoviesService, { MoviesByNameResponse } from '../../services/movies';
-import { GetMovies, GetMoviesSucceeded } from '../movies/types';
+import {
+  GetMovies,
+  GetMoviesSucceeded,
+  GetMoviesFailed,
+} from '../movies/types';
 
 function* watchGetMovies() {
   yield takeLatest('GET_MOVIES', fetchMovies);
@@ -20,8 +24,10 @@ function* fetchMovies(action: GetMovies) {
       payload: data,
     });
   } catch (error) {
-    // TODO: warn user
-    console.log(error);
+    yield put<GetMoviesFailed>({
+      type: 'GET_MOVIES_FAILED',
+      payload: error,
+    });
   }
 }
 

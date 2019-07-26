@@ -34,6 +34,8 @@ export default {
       const res = await fetch(url);
       const body = await res.json();
 
+      if (!res.ok) throw new Error(body.errors.join(','));
+
       return {
         movies: body.results.map(movieAdapter),
         page: body.page,
@@ -41,7 +43,7 @@ export default {
         totalResults: body.total_results,
       };
     } catch (error) {
-      throw new Error('Fetch error');
+      throw new Error(error.message);
     }
   },
 };
