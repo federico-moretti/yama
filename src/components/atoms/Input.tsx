@@ -2,6 +2,17 @@ import React from 'react';
 import classNames from 'classnames';
 import { Colors, colorsMap, Sizes } from '../../commons/types';
 
+const containerStyle: React.CSSProperties = {
+  width: '100%',
+  position: 'relative',
+};
+
+const deleteButtonStyle: React.CSSProperties = {
+  position: 'absolute',
+  right: '10px',
+  top: 'calc(50% - 10px)',
+};
+
 type InputTypes = 'text' | 'password' | 'email' | 'tel';
 
 interface InputProps {
@@ -47,18 +58,29 @@ function Input(props: InputProps) {
     if (onEnter && event.key === 'Enter') onEnter();
   }
 
+  function deleteValue() {
+    onChange('');
+    ref.current.focus();
+  }
+
   return (
-    <input
-      ref={ref}
-      style={style}
-      data-testid={testid}
-      className={classes}
-      placeholder={placeholder}
-      type={type}
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      onKeyDown={handleKeyDown}
-    />
+    <div style={{ ...containerStyle, ...style }}>
+      <input
+        ref={ref}
+        data-testid={testid}
+        className={classes}
+        placeholder={placeholder}
+        type={type}
+        value={value}
+        onChange={e => onChange(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+      <span
+        onClick={deleteValue}
+        style={deleteButtonStyle}
+        className="delete"
+      />
+    </div>
   );
 }
 
