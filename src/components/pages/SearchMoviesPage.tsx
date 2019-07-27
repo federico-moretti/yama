@@ -19,7 +19,7 @@ function SearchMoviesPage() {
 
   const moviesSearchBox = (
     <SearchBox
-      placeholder="Type a title of a movie"
+      placeholder="Search a movie"
       error={error}
       loading={loading}
       onSearch={v => dispatch({ type: 'GET_MOVIES_REQUEST', payload: v })}
