@@ -1,23 +1,21 @@
 import React from 'react';
-import Box from '../atoms/Box';
+import styled from 'styled-components';
 import { Movie, Genre } from '../../commons/types';
+import { MOVIE_DB_IMAGE_PATH } from '../../commons/constants';
+import Box from '../atoms/Box';
 import Title from '../atoms/Title';
 import Button from '../atoms/Button';
 import LabeledValue from './LabeledValue';
 import Image from '../atoms/Image';
-import { useWindowSize } from '../../commons/hooks';
 
-const mdbImagePath = 'https://image.tmdb.org/t/p/w200';
+const InfoContainer = styled.div`
+  margin-top: 20px;
+  display: block;
 
-const boxStyle = {
-  transition: 'height 0.5s ease-in',
-};
-
-const infoContainerStyle = {
-  display: 'flex',
-  justifyContent: 'space-between',
-  marginTop: 20,
-};
+  @media (min-width: 800px) {
+    display: flex;
+  }
+`;
 
 const titleContainerStyle = {
   display: 'flex',
@@ -26,10 +24,17 @@ const titleContainerStyle = {
 };
 
 const imageStyle = {
-  minWidth: 160,
-  maxWidth: 160,
   borderRadius: 6,
 };
+
+const ContainerImage = styled.div`
+  float: left;
+  margin-right: 20px;
+
+  @media (min-width: 800px) {
+    float: none;
+  }
+`;
 
 interface MovieBoxProps {
   movie: Movie;
@@ -38,12 +43,6 @@ interface MovieBoxProps {
 function MovieBox(props: MovieBoxProps) {
   const { movie, genres } = props;
   const [showInfos, setShowInfos] = React.useState(false);
-  const [showImage, setShowImage] = React.useState(true);
-  const { width } = useWindowSize();
-
-  React.useEffect(() => {
-    if (width) setShowImage(width > 400);
-  }, [width]);
 
   function toggleInfos() {
     setShowInfos(b => !b);
@@ -58,7 +57,7 @@ function MovieBox(props: MovieBoxProps) {
   }
 
   return (
-    <Box style={boxStyle}>
+    <Box>
       <div style={titleContainerStyle}>
         <Title style={{ marginBottom: 0 }} level={1} size={5} alignment="left">
           {movie.title} ({movie.releaseDate.slice(0, 4)})
@@ -68,20 +67,21 @@ function MovieBox(props: MovieBoxProps) {
         </Button>
       </div>
       {showInfos && (
-        <div style={infoContainerStyle}>
-          {showImage && (
-            <Image
-              style={{ marginRight: 20 }}
-              imageStyle={imageStyle}
-              src={`${mdbImagePath}${movie.posterPath}`}
-            />
+        <InfoContainer>
+          {movie.posterPath && (
+            <ContainerImage>
+              <Image
+                imageStyle={imageStyle}
+                src={`${MOVIE_DB_IMAGE_PATH}w200${movie.posterPath}`}
+              />
+            </ContainerImage>
           )}
           <div>
             <LabeledValue label="Vote:" value={movie.voteAverage.toString()} />
             <LabeledValue label="Genres:" value={getGenres(movie.genreIds)} />
             <LabeledValue label="Plot:" value={movie.overview} />
           </div>
-        </div>
+        </InfoContainer>
       )}
     </Box>
   );

@@ -1,5 +1,21 @@
 import React from 'react';
 import classNames from 'classnames';
+import styled from 'styled-components';
+
+const StyledFigure = styled.figure`
+  min-width: 100px;
+  width: 100px;
+
+  @media (min-width: 960px) {
+    min-width: 160px;
+    width: 160px;
+  }
+
+  @media (min-width: 960px) {
+    min-width: 160px;
+    width: 160px;
+  }
+`;
 
 interface ImageProps {
   src: string;
@@ -15,9 +31,9 @@ function Image(props: ImageProps) {
   });
 
   return (
-    <figure style={style} className={classes}>
+    <StyledFigure style={style} className={classes}>
       <img style={imageStyle} src={src} alt={alt} />
-    </figure>
+    </StyledFigure>
   );
 }
 
