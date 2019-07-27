@@ -16,6 +16,12 @@ describe('Actions', () => {
     cy.getByText('Inception (2010)').should('exist');
   });
 
+  it('should insert then delete a input value', () => {
+    cy.getByTestId('search-box-input').type('inception');
+    cy.getByTestId('search-box-input-delete-button').click();
+    cy.getByTestId('search-box-input').should('have.value', '');
+  });
+
   it('should search a movie, open and close more info', () => {
     cy.getByTestId('search-box-input').type('inception');
     cy.getByTestId('search-box-button').click();
