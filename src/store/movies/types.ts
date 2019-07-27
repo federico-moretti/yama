@@ -7,6 +7,7 @@ export interface MoviesState {
   totalPages: number | null;
   totalResults: number | null;
   loading: boolean;
+  didSearch: boolean;
   error: Error | null;
 }
 

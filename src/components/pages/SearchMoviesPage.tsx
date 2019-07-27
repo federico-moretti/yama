@@ -8,7 +8,7 @@ import MovieBoxList from '../organisms/MovieBoxList';
 
 function SearchMoviesPage() {
   const dispatch = useDispatch();
-  const { movies, genres, error, loading } = useSelector(
+  const { movies, genres, error, loading, didSearch } = useSelector(
     ({ moviesState }) => moviesState
   );
 
@@ -31,7 +31,9 @@ function SearchMoviesPage() {
       header={<Header />}
       searchBox={moviesSearchBox}
       showSeparator={movies.length > 0}
-      list={<MovieBoxList genres={genres} movies={movies} />}
+      list={
+        <MovieBoxList didSearch={didSearch} genres={genres} movies={movies} />
+      }
       footer={<Footer />}
     />
   );

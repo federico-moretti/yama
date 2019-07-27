@@ -15,6 +15,7 @@ const initialState: MoviesState = {
   totalPages: null,
   totalResults: null,
   error: null,
+  didSearch: false,
   loading: false,
 };
 
@@ -35,6 +36,7 @@ export function moviesReducer(
         page: action.payload.page,
         totalPages: action.payload.totalPages,
         totalResults: action.payload.totalResults,
+        didSearch: true,
         error: null,
         loading: false,
       };
