@@ -11,6 +11,7 @@ interface InputProps {
   type?: InputTypes;
   value?: string;
   placeholder?: string;
+  testid?: string;
   focusOnMount?: boolean;
   onChange?: (value: string) => void;
   onEnter?: () => void;
@@ -21,6 +22,7 @@ function Input(props: InputProps) {
     color = 'primary',
     type = 'text',
     size = 'normal',
+    testid,
     placeholder,
     value,
     focusOnMount = false,
@@ -49,6 +51,7 @@ function Input(props: InputProps) {
     <input
       ref={ref}
       style={style}
+      data-testid={testid}
       className={classes}
       placeholder={placeholder}
       type={type}

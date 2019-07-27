@@ -29,6 +29,7 @@ function SearchBox(props: SearchBoxProps) {
     <div style={searchBoxStyle}>
       <div style={inputAndButtonStyle}>
         <Input
+          testid="search-box-input"
           style={inputStyle}
           size="large"
           focusOnMount={true}
@@ -37,12 +38,21 @@ function SearchBox(props: SearchBoxProps) {
           onChange={setValue}
           onEnter={() => onSearch(value)}
         />
-        <Button loading={loading} size="large" onClick={() => onSearch(value)}>
+        <Button
+          testid="search-box-button"
+          loading={loading}
+          size="large"
+          onClick={() => onSearch(value)}
+        >
           Search
         </Button>
       </div>
       {error && (
-        <Text style={{ position: 'absolute' }} color="danger">
+        <Text
+          testid="search-box-error"
+          style={{ position: 'absolute' }}
+          color="danger"
+        >
           {error.message}
         </Text>
       )}

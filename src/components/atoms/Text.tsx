@@ -6,10 +6,11 @@ interface TextProps {
   size?: TextSizes;
   color?: Colors;
   style?: React.CSSProperties;
+  testid?: string;
   children: React.ReactNode;
 }
 function Text(props: TextProps) {
-  const { style, size = 6, color, children } = props;
+  const { style, size = 6, color, testid, children } = props;
 
   const classes = classNames({
     [`is-size-${size}`]: true,
@@ -17,7 +18,7 @@ function Text(props: TextProps) {
   });
 
   return (
-    <span style={style} className={classes}>
+    <span data-testid={testid} style={style} className={classes}>
       {children}
     </span>
   );

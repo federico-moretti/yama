@@ -8,6 +8,7 @@ interface ButtonProps {
   size?: Sizes;
   loading?: boolean;
   outlined?: boolean;
+  testid?: string;
   onClick: () => void;
   children: React.ReactNode;
 }
@@ -19,6 +20,7 @@ function Button(props: ButtonProps) {
     size = 'normal',
     loading = false,
     outlined = false,
+    testid,
     children,
   } = props;
 
@@ -31,7 +33,12 @@ function Button(props: ButtonProps) {
   });
 
   return (
-    <button style={style} className={classes} onClick={onClick}>
+    <button
+      data-testid={testid}
+      style={style}
+      className={classes}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

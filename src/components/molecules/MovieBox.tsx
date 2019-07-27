@@ -62,7 +62,7 @@ function MovieBox(props: MovieBoxProps) {
         <Title style={{ marginBottom: 0 }} level={1} size={5} alignment="left">
           {movie.title} ({movie.releaseDate.slice(0, 4)})
         </Title>
-        <Button outlined onClick={toggleInfos}>
+        <Button testid="movie-box-button" outlined onClick={toggleInfos}>
           Show more
         </Button>
       </div>
