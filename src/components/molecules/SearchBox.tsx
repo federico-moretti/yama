@@ -18,10 +18,11 @@ const inputStyle = {
 interface SearchBoxProps {
   error?: Error | null;
   placeholder?: string;
+  loading?: boolean;
   onSearch: (search: string) => void;
 }
 function SearchBox(props: SearchBoxProps) {
-  const { placeholder, error, onSearch } = props;
+  const { placeholder, error, onSearch, loading } = props;
   const [value, setValue] = React.useState('');
 
   return (
@@ -36,7 +37,7 @@ function SearchBox(props: SearchBoxProps) {
           onChange={setValue}
           onEnter={() => onSearch(value)}
         />
-        <Button size="large" onClick={() => onSearch(value)}>
+        <Button loading={loading} size="large" onClick={() => onSearch(value)}>
           Search
         </Button>
       </div>

@@ -9,7 +9,6 @@ interface InputProps {
   color?: Colors;
   size?: Sizes;
   type?: InputTypes;
-  loading?: boolean;
   value?: string;
   placeholder?: string;
   focusOnMount?: boolean;
@@ -20,7 +19,6 @@ function Input(props: InputProps) {
   const {
     style,
     color = 'primary',
-    loading = 'false',
     type = 'text',
     size = 'normal',
     placeholder,
@@ -33,7 +31,6 @@ function Input(props: InputProps) {
   const classes = classNames({
     input: true,
     [colorsMap[color]]: true,
-    'is-loading': loading,
     [`is-${size}`]: true,
   });
 

@@ -1,17 +1,22 @@
 import { fork, call, put, takeLatest } from 'redux-saga/effects';
 import MoviesService, { MoviesByNameResponse } from '../../services/movies';
 import {
-  GetMovies,
-  GetMoviesSucceeded,
-  GetMoviesFailed,
+  GetMoviesRequest,
+  GetMoviesSuccess,
+  GetMoviesFailure,
+  GetMoviesLoading,
 } from '../movies/types';
 
 function* watchGetMovies() {
-  yield takeLatest('GET_MOVIES', fetchMovies);
+  yield takeLatest('GET_MOVIES_REQUEST', fetchMovies);
 }
 
-function* fetchMovies(action: GetMovies) {
+function* fetchMovies(action: GetMoviesRequest) {
   try {
+    yield put<GetMoviesLoading>({
+      type: 'GET_MOVIES_LOADING',
+    });
+
     // TS does not infer the yield calls yet
     // so we must define the variable type
     const data: MoviesByNameResponse = yield call(
@@ -19,13 +24,13 @@ function* fetchMovies(action: GetMovies) {
       action.payload
     );
 
-    yield put<GetMoviesSucceeded>({
-      type: 'GET_MOVIES_SUCCEEDED',
+    yield put<GetMoviesSuccess>({
+      type: 'GET_MOVIES_SUCCESS',
       payload: data,
     });
   } catch (error) {
-    yield put<GetMoviesFailed>({
-      type: 'GET_MOVIES_FAILED',
+    yield put<GetMoviesFailure>({
+      type: 'GET_MOVIES_FAILURE',
       payload: error,
     });
   }

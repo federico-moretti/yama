@@ -5,20 +5,26 @@ export interface MoviesState {
   page: number | null;
   totalPages: number | null;
   totalResults: number | null;
+  loading: boolean;
   error: Error | null;
 }
 
-export const GET_MOVIES = 'GET_MOVIES';
-export const GET_MOVIES_SUCCEEDED = 'GET_MOVIES_SUCCEEDED';
-export const GET_MOVIES_FAILED = 'GET_MOVIES_FAILED';
+export const GET_MOVIES_REQUEST = 'GET_MOVIES_REQUEST';
+export const GET_MOVIES_LOADING = 'GET_MOVIES_LOADING';
+export const GET_MOVIES_SUCCESS = 'GET_MOVIES_SUCCESS';
+export const GET_MOVIES_FAILURE = 'GET_MOVIES_FAILURE';
 
-export interface GetMovies {
-  type: typeof GET_MOVIES;
+export interface GetMoviesRequest {
+  type: typeof GET_MOVIES_REQUEST;
   payload: string;
 }
 
-export interface GetMoviesSucceeded {
-  type: typeof GET_MOVIES_SUCCEEDED;
+export interface GetMoviesLoading {
+  type: typeof GET_MOVIES_LOADING;
+}
+
+export interface GetMoviesSuccess {
+  type: typeof GET_MOVIES_SUCCESS;
   payload: {
     movies: Movie[];
     page: number | null;
@@ -27,12 +33,13 @@ export interface GetMoviesSucceeded {
   };
 }
 
-export interface GetMoviesFailed {
-  type: typeof GET_MOVIES_FAILED;
+export interface GetMoviesFailure {
+  type: typeof GET_MOVIES_FAILURE;
   payload: Error;
 }
 
 export type MoviesActionTypes =
-  | GetMovies
-  | GetMoviesSucceeded
-  | GetMoviesFailed;
+  | GetMoviesRequest
+  | GetMoviesLoading
+  | GetMoviesSuccess
+  | GetMoviesFailure;
