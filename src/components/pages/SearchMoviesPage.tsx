@@ -12,7 +12,6 @@ function SearchMoviesPage() {
     ({ moviesState }) => moviesState
   );
 
-  console.log({ movies, genres, error, loading });
   React.useEffect(() => {
     dispatch({ type: 'GET_MOVIES_GENRES_REQUEST' });
   }, [dispatch]);

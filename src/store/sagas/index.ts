@@ -42,7 +42,6 @@ function* fetchMovies(action: GetMoviesRequest) {
 }
 
 function* watchGetGenres() {
-  console.log('watch genres');
   yield takeLatest('GET_MOVIES_GENRES_REQUEST', fetchGenres);
 }
 
