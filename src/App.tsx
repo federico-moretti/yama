@@ -5,6 +5,7 @@ import SearchBox from './components/molecules/SearchBox';
 import Header from './components/organisms/Header';
 import Footer from './components/organisms/Footer';
 import MovieBoxList from './components/organisms/MovieBoxList';
+import Separator from './components/atoms/Separator';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         error={error}
         onSearch={v => dispatch({ type: 'GET_MOVIES', payload: v })}
       />
+      <Separator />
       <MovieBoxList movies={movies} />
     </BaseLayout>
   );

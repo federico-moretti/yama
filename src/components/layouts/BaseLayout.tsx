@@ -1,37 +1,34 @@
 import React from 'react';
 
+const mainStyle = {
+  flex: 1,
+};
+const Main = ({ children }: { children: React.ReactNode }) => (
+  <main style={mainStyle} className="section">
+    {children}
+  </main>
+);
+
+const baseLayoutStyle: React.CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+};
+
 interface BaseLayoutProps {
   style?: React.CSSProperties;
   header: React.ReactNode;
   children: React.ReactNode;
   footer: React.ReactNode;
 }
-
-const headerStyle = {};
-const Header = ({ children }: { children: React.ReactNode }) => (
-  <div style={headerStyle}>{children}</div>
-);
-
-const mainStyle = {};
-const Main = ({ children }: { children: React.ReactNode }) => (
-  <div style={mainStyle} className="section">
-    {children}
-  </div>
-);
-
-const footerStyle = {};
-const Footer = ({ children }: { children: React.ReactNode }) => (
-  <div style={footerStyle}>{children}</div>
-);
-
 function BaseLayout(props: BaseLayoutProps) {
   const { style, header, children, footer } = props;
 
   return (
-    <div style={style}>
-      <Header>{header}</Header>
+    <div style={{ ...baseLayoutStyle, ...style }}>
+      {header}
       <Main>{children}</Main>
-      <Footer>{footer}</Footer>
+      {footer}
     </div>
   );
 }
