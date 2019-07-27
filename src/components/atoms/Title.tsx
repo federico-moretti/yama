@@ -1,10 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Sizes, Levels, Alignments, alignmentsMap } from '../../commons/types';
+import {
+  TextSizes,
+  Levels,
+  Alignments,
+  alignmentsMap,
+} from '../../commons/types';
 
 interface TitleProps {
   level: Levels;
-  size?: Sizes;
+  size?: TextSizes;
   alignment?: Alignments;
   style?: React.CSSProperties;
   children: React.ReactNode;

@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Sizes, Colors } from '../../commons/types';
+import { TextSizes, Colors } from '../../commons/types';
 
 interface TextProps {
-  size?: Sizes;
+  size?: TextSizes;
   color?: Colors;
   style?: React.CSSProperties;
   children: React.ReactNode;

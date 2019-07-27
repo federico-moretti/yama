@@ -15,6 +15,7 @@ const App: React.FC = () => {
     <BaseLayout header={<Header />} footer={<Footer />}>
       <SearchBox
         placeholder="Type a title of a movie"
+        error={error}
         onSearch={v => dispatch({ type: 'GET_MOVIES', payload: v })}
       />
       <MovieBoxList movies={movies} />

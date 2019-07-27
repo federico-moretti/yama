@@ -15,7 +15,9 @@ export const colorsMap = {
   danger: 'is-danger',
 };
 
-export type Sizes = 1 | 2 | 3 | 4 | 5 | 6;
+export type Sizes = 'small' | 'normal' | 'medium' | 'large';
+
+export type TextSizes = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type Levels = 1 | 2 | 3 | 4 | 5 | 6;
 

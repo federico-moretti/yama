@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Colors, colorsMap } from '../../commons/types';
+import { Colors, colorsMap, Sizes } from '../../commons/types';
 
-type InputType = 'text' | 'password' | 'email' | 'tel';
+type InputTypes = 'text' | 'password' | 'email' | 'tel';
 
 interface InputProps {
   style?: React.CSSProperties;
   color?: Colors;
-  type?: InputType;
+  size?: Sizes;
+  type?: InputTypes;
   loading?: boolean;
   value?: string;
   placeholder?: string;
@@ -20,8 +21,9 @@ function Input(props: InputProps) {
     style,
     color = 'primary',
     loading = 'false',
-    placeholder,
     type = 'text',
+    size = 'normal',
+    placeholder,
     value,
     focusOnMount = false,
     onChange = () => {},
@@ -32,6 +34,7 @@ function Input(props: InputProps) {
     input: true,
     [colorsMap[color]]: true,
     'is-loading': loading,
+    [`is-${size}`]: true,
   });
 
   const ref = React.useRef((null as unknown) as HTMLInputElement);

@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Colors, colorsMap } from '../../commons/types';
+import { Colors, colorsMap, Sizes } from '../../commons/types';
 
 interface ButtonProps {
   style?: React.CSSProperties;
   color?: Colors;
+  size?: Sizes;
   loading?: boolean;
   outlined?: boolean;
   onClick: () => void;
@@ -15,6 +16,7 @@ function Button(props: ButtonProps) {
     style,
     onClick,
     color = 'primary',
+    size = 'normal',
     loading = false,
     outlined = false,
     children,
@@ -25,6 +27,7 @@ function Button(props: ButtonProps) {
     [colorsMap[color]]: true,
     'is-loading': loading,
     'is-outlined': outlined,
+    [`is-${size}`]: true,
   });
 
   return (
