@@ -1,5 +1,5 @@
 import React from 'react';
-import { Movie } from '../../commons/types';
+import { Movie, Genre } from '../../commons/types';
 import MovieBox from '../molecules/MovieBox';
 
 const movieBoxListContainerStyle = {
@@ -8,14 +8,15 @@ const movieBoxListContainerStyle = {
 
 interface MovieBoxListProps {
   movies: Movie[];
+  genres: Genre[];
 }
 function MovieBoxList(props: MovieBoxListProps) {
-  const { movies } = props;
+  const { movies, genres } = props;
 
   return (
     <div style={movieBoxListContainerStyle}>
       {movies.map(m => (
-        <MovieBox key={m.id} movie={m} />
+        <MovieBox key={m.id} genres={genres} movie={m} />
       ))}
     </div>
   );

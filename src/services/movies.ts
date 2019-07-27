@@ -1,5 +1,5 @@
-import { Movie } from '../commons/types';
-import { MOVIE_DB_KEY } from '../commons/constants';
+import { Movie, Genre } from '../commons/types';
+import { MOVIE_DB_KEY, MOVIE_DB_PATH } from '../commons/constants';
 
 function movieAdapter(rawMovie: any): Movie {
   return {
@@ -27,13 +27,18 @@ export interface MoviesByNameResponse {
   totalResults: number;
 }
 
+export type MoviesGenresResponse = Genre[];
+
 export default {
   searchByName: async (name: string): Promise<MoviesByNameResponse> => {
     try {
-      const url = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_DB_KEY}&query=${name}`;
+      const url = `${MOVIE_DB_PATH}/3/search/movie?api_key=${MOVIE_DB_KEY}&query=${name}`;
       const res = await fetch(url);
       const body = await res.json();
 
+      // this is a pretty simplified way handle failed requests
+      // - we should expose a custom error to our users
+      // - we should handle 204 and check if res.json() crashes
       if (!res.ok) throw new Error(body.errors.join(','));
 
       return {
@@ -42,6 +47,20 @@ export default {
         totalPages: body.total_pages,
         totalResults: body.total_results,
       };
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
+
+  getGenres: async (): Promise<MoviesGenresResponse> => {
+    try {
+      const url = `${MOVIE_DB_PATH}/3/genre/movie/list?api_key=${MOVIE_DB_KEY}`;
+      const res = await fetch(url);
+      const body = await res.json();
+
+      if (!res.ok) throw new Error(body.errors.join(','));
+
+      return body.genres;
     } catch (error) {
       throw new Error(error.message);
     }

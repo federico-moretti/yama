@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '../atoms/Box';
-import { Movie } from '../../commons/types';
+import { Movie, Genre } from '../../commons/types';
 import Title from '../atoms/Title';
 import Button from '../atoms/Button';
 import LabeledValue from './LabeledValue';
@@ -33,9 +33,10 @@ const imageStyle = {
 
 interface MovieBoxProps {
   movie: Movie;
+  genres: Genre[];
 }
 function MovieBox(props: MovieBoxProps) {
-  const { movie } = props;
+  const { movie, genres } = props;
   const [showInfos, setShowInfos] = React.useState(false);
   const [showImage, setShowImage] = React.useState(true);
   const { width } = useWindowSize();
@@ -46,6 +47,14 @@ function MovieBox(props: MovieBoxProps) {
 
   function toggleInfos() {
     setShowInfos(b => !b);
+  }
+
+  function getGenres(ids: number[]): string {
+    // filter(Boolean) remove all undefined from the array values
+    const genresFound = ids
+      .map(id => genres.find(g => g.id === id))
+      .filter(Boolean) as Genre[];
+    return genresFound.map(genre => genre.name).join(', ');
   }
 
   return (
@@ -69,7 +78,7 @@ function MovieBox(props: MovieBoxProps) {
           )}
           <div>
             <LabeledValue label="Vote:" value={movie.voteAverage.toString()} />
-            <LabeledValue label="Genres:" value={movie.genreIds.join(', ')} />
+            <LabeledValue label="Genres:" value={getGenres(movie.genreIds)} />
             <LabeledValue label="Plot:" value={movie.overview} />
           </div>
         </div>

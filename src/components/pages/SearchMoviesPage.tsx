@@ -8,9 +8,14 @@ import MovieBoxList from '../organisms/MovieBoxList';
 
 function SearchMoviesPage() {
   const dispatch = useDispatch();
-  const { movies, error, loading } = useSelector(
+  const { movies, genres, error, loading } = useSelector(
     ({ moviesState }) => moviesState
   );
+
+  console.log({ movies, genres, error, loading });
+  React.useEffect(() => {
+    dispatch({ type: 'GET_MOVIES_GENRES_REQUEST' });
+  }, [dispatch]);
 
   const moviesSearchBox = (
     <SearchBox
@@ -26,7 +31,7 @@ function SearchMoviesPage() {
       header={<Header />}
       searchBox={moviesSearchBox}
       showSeparator={movies.length > 0}
-      list={<MovieBoxList movies={movies} />}
+      list={<MovieBoxList genres={genres} movies={movies} />}
       footer={<Footer />}
     />
   );
