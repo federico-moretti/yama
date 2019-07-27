@@ -4,6 +4,37 @@ Yet Another Movies App
 
 ---
 
+## Setup
+
+Add a `.env` file in the source folder, with the following parameters:
+
+```
+REACT_APP_MOVIE_DB_KEY=string
+REACT_APP_MOVIE_DB_PATH=string
+REACT_APP_MOVIE_DB_IMAGE_PATH=string
+```
+
+---
+
+## Built with
+
+- typescript
+- react
+- react-redux
+- redux-saga
+- styled-components
+- bulma (css library)
+- themoviedb.org (apis)
+
+---
+
+## Todo
+
+- better apis error handling
+- mock a server for cypress tests
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -20,8 +51,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches cypress and runs the test suite.
 
 ### `npm run build`
 
