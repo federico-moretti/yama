@@ -12,14 +12,14 @@
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
     "styled-components": "^4.3.2",
-    "typescript": "^3.6.0-beta"
+    "typescript": "^3.5.3"
   },
   "scripts": {
-    "cypress:open": "cypress open",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test start http://localhost:3000 cy:run"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,14 +37,15 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^4.0.5",
     "@types/classnames": "^2.2.9",
     "@types/jest": "24.0.15",
     "@types/node": "12.6.8",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
-    "@testing-library/cypress": "^4.0.5",
     "@types/react-redux": "^7.1.1",
     "@types/styled-components": "^4.1.18",
-    "cypress": "^3.4.0"
+    "cypress": "^3.4.0",
+    "start-server-and-test": "^1.9.1"
   }
 }
