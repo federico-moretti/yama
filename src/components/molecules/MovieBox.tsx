@@ -8,6 +8,8 @@ import Button from '../atoms/Button';
 import LabeledValue from './LabeledValue';
 import Image from '../atoms/Image';
 
+// TODO: change "show less/more" with an icon
+
 const InfoContainer = styled.div`
   margin-top: 20px;
   display: block;
@@ -63,7 +65,7 @@ function MovieBox(props: MovieBoxProps) {
           {movie.title} ({movie.releaseDate.slice(0, 4)})
         </Title>
         <Button testid="movie-box-button" outlined onClick={toggleInfos}>
-          Show more
+          {showInfos ? 'Show less' : 'Show more'}
         </Button>
       </div>
       {showInfos && (
