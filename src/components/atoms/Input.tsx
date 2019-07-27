@@ -24,6 +24,7 @@ interface InputProps {
   placeholder?: string;
   testid?: string;
   focusOnMount?: boolean;
+  enableDelete?: boolean;
   onChange?: (value: string) => void;
   onEnter?: () => void;
 }
@@ -37,6 +38,7 @@ function Input(props: InputProps) {
     placeholder,
     value,
     focusOnMount = false,
+    enableDelete = true,
     onChange = () => {},
     onEnter,
   } = props;
@@ -75,11 +77,14 @@ function Input(props: InputProps) {
         onChange={e => onChange(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <span
-        onClick={deleteValue}
-        style={deleteButtonStyle}
-        className="delete"
-      />
+      {enableDelete && value && value.length > 0 && (
+        <span
+          data-testid={testid + '-delete-button'}
+          onClick={deleteValue}
+          style={deleteButtonStyle}
+          className="delete"
+        />
+      )}
     </div>
   );
 }
