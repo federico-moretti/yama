@@ -1,8 +1,6 @@
 import React from 'react';
 
-const hrStyle = {
-  backgroundColor: 'rgba(1, 209, 178, 0.25)',
-};
+const hrStyle = {};
 
 interface SeparatorProps {
   style?: React.CSSProperties;
