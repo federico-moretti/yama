@@ -28,7 +28,7 @@ describe('Actions', () => {
 
     cy.getAllByTestId('movie-box-button')
       .first()
-      .click();
+      .click({ force: true });
     cy.getByText('Vote:').should('exist');
     cy.getByText('Genres:').should('exist');
     cy.getByText('Plot:').should('exist');

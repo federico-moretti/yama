@@ -4,9 +4,9 @@ import { Movie, Genre } from '../../commons/types';
 import { MOVIE_DB_IMAGE_PATH } from '../../commons/constants';
 import Box from '../atoms/Box';
 import Title from '../atoms/Title';
-import Button from '../atoms/Button';
 import LabeledValue from './LabeledValue';
 import Image from '../atoms/Image';
+import IconButton from '../atoms/IconButton';
 
 // TODO: change "show less/more" with an icon
 
@@ -64,9 +64,15 @@ function MovieBox(props: MovieBoxProps) {
         <Title style={{ marginBottom: 0 }} level={1} size={5} alignment="left">
           {movie.title} ({movie.releaseDate.slice(0, 4)})
         </Title>
-        <Button testid="movie-box-button" outlined onClick={toggleInfos}>
-          {showInfos ? 'Show less' : 'Show more'}
-        </Button>
+        <IconButton
+          testid="movie-box-button"
+          type="chevron"
+          onClick={toggleInfos}
+          buttonStyle={{
+            transition: 'transform ease-in 150ms',
+            transform: showInfos ? 'rotate(0deg)' : 'rotate(180deg)',
+          }}
+        />
       </div>
       {showInfos && (
         <InfoContainer>
