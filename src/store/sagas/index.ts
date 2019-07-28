@@ -1,4 +1,4 @@
-import { fork, call, put, takeLatest } from 'redux-saga/effects';
+import { spawn, call, put, takeLatest } from 'redux-saga/effects';
 import MoviesService, {
   MoviesByNameResponse,
   MoviesGenresResponse,
@@ -61,7 +61,8 @@ function* fetchGenres() {
   }
 }
 
+// https://redux-saga.js.org/docs/advanced/RootSaga.html
 export default function* root() {
-  yield fork(watchGetMovies);
-  yield fork(watchGetGenres);
+  yield spawn(watchGetMovies);
+  yield spawn(watchGetGenres);
 }
