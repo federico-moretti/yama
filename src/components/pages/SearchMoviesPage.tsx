@@ -1,9 +1,9 @@
 import React from 'react';
+import { useDispatch, useSelector } from '../../store';
 import SearchLayout from '../layouts/SearchLayout';
 import Header from '../organisms/Header';
 import Footer from '../organisms/Footer';
 import SearchBox from '../molecules/SearchBox';
-import { useDispatch, useSelector } from '../../store';
 import MovieBoxList from '../organisms/MovieBoxList';
 
 function SearchMoviesPage() {

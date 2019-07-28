@@ -12,14 +12,11 @@ import { moviesReducer } from './movies/reducers';
 import { MoviesActionTypes } from './movies/types';
 import rootSaga from './sagas';
 
-const sagaMiddleware = createSagaMiddleware();
-
 const rootReducer = combineReducers({
   moviesState: moviesReducer,
 });
 
-export type AppState = ReturnType<typeof rootReducer>;
-
+const sagaMiddleware = createSagaMiddleware();
 export default function configureStore() {
   const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
   sagaMiddleware.run(rootSaga);
@@ -28,8 +25,12 @@ export default function configureStore() {
 
 export type ActionTypes = MoviesActionTypes;
 
+export type AppState = ReturnType<typeof rootReducer>;
+
+// exports dispatch with types
 export function useDispatch() {
   return useReduxDispatch<Dispatch<ActionTypes>>();
 }
 
+// exports selector with types
 export const useSelector: TypedUseSelectorHook<AppState> = useReduxSelector;
