@@ -23,6 +23,8 @@ export type Levels = 1 | 2 | 3 | 4 | 5 | 6;
 
 export type Alignments = 'center' | 'justify' | 'left' | 'right';
 
+export type IconType = 'chevron';
+
 export const alignmentsMap = {
   center: 'has-text-centered',
   justify: 'has-text-justified',

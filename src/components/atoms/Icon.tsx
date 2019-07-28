@@ -1,8 +1,6 @@
 import React from 'react';
-import { Colors, colorsMap } from '../../commons/types';
+import { Colors, colorsMap, IconType } from '../../commons/types';
 import { ReactComponent as Chevron } from '../../icons/chevron-down.svg';
-
-type IconType = 'chevron';
 
 interface IconProps {
   style?: React.CSSProperties;
