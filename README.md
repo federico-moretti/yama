@@ -25,6 +25,7 @@ REACT_APP_MOVIE_DB_IMAGE_PATH=string
 - styled-components
 - bulma (css library)
 - themoviedb.org (apis)
+- cypress (tests)
 
 ---
 
@@ -39,4 +40,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Licence
 
-[MIT](LICENSE) © [Federico Moretti](https://fmoretti.com)
+[MIT](LICENSE) © [Federico Moretti](https://federicomoretti.dev)
