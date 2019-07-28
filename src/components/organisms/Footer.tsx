@@ -1,5 +1,6 @@
 import React from 'react';
 import Paragraph from '../atoms/Paragraph';
+import Link from '../atoms/Link';
 
 interface FooterProps {
   style?: React.CSSProperties;
@@ -15,6 +16,11 @@ function Footer(props: FooterProps) {
     <footer style={style} className="footer">
       <div className="content has-text-centered">
         <Paragraph>{text}</Paragraph>
+        <Paragraph>
+          <Link href="https://github.com/Ikos9/yama">Github</Link>
+          {' • '}
+          <Link href="https://federicomoretti.dev">Portfolio</Link>
+        </Paragraph>
       </div>
     </footer>
   );
