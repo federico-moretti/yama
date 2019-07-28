@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Colors, colorsMap } from '../../commons/types';
+import { Colors } from '../../commons/types';
 
 interface HeroProps {
   style?: React.CSSProperties;
@@ -12,7 +12,7 @@ function Hero(props: HeroProps) {
 
   const classes = classNames({
     hero: true,
-    [colorsMap[color]]: true,
+    [`is-${color}`]: true,
   });
 
   return (

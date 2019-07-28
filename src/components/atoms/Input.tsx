@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Colors, colorsMap, Sizes } from '../../commons/types';
+import { Colors, Sizes } from '../../commons/types';
 
 const containerStyle: React.CSSProperties = {
   width: '100%',
@@ -45,7 +45,7 @@ function Input(props: InputProps) {
 
   const classes = classNames({
     input: true,
-    [colorsMap[color]]: true,
+    [`is-${color}`]: true,
     [`is-${size}`]: true,
   });
 

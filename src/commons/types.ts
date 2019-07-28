@@ -1,18 +1,18 @@
 export type Colors =
   | 'primary'
-  | 'link'
   | 'info'
+  | 'link'
   | 'success'
   | 'warning'
   | 'danger';
 
 export const colorsMap = {
-  primary: 'is-primary',
-  link: 'is-link',
-  info: 'is-info',
-  success: 'is-success',
-  warning: 'is-warning',
-  danger: 'is-danger',
+  primary: 'hsl(171, 100%, 41%)',
+  info: 'hsl(204, 86%,  53%)',
+  link: 'hsl(217, 71%,  53%)',
+  success: 'hsl(141, 71%,  48%)',
+  warning: 'hsl(48,  100%, 67%)',
+  danger: 'hsl(348, 100%, 61%)',
 };
 
 export type Sizes = 'small' | 'normal' | 'medium' | 'large';

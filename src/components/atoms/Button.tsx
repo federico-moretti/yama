@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Colors, colorsMap, Sizes } from '../../commons/types';
+import { Colors, Sizes } from '../../commons/types';
 
 interface ButtonProps {
   style?: React.CSSProperties;
@@ -26,7 +26,7 @@ function Button(props: ButtonProps) {
 
   const classes = classNames({
     button: true,
-    [colorsMap[color]]: true,
+    [`is-${color}`]: true,
     'is-loading': loading,
     'is-outlined': outlined,
     [`is-${size}`]: true,
