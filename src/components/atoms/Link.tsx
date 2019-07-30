@@ -15,7 +15,7 @@ function Link(props: LinkProps) {
 
   const classes = classNames({
     [`is-size-${size}`]: true,
-    [`has-text-${color}`]: Boolean(color),
+    [`has-text-${color}`]: true,
   });
 
   return (

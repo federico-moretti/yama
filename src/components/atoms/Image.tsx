@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import styled from 'styled-components';
 
 const StyledFigure = styled.figure`
@@ -26,12 +25,8 @@ interface ImageProps {
 function Image(props: ImageProps) {
   const { src, alt, style, imageStyle } = props;
 
-  const classes = classNames({
-    image: true,
-  });
-
   return (
-    <StyledFigure style={style} className={classes}>
+    <StyledFigure style={style} className="image">
       <img style={imageStyle} src={src} alt={alt} />
     </StyledFigure>
   );

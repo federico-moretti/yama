@@ -11,7 +11,7 @@ function Label(props: LabelProps) {
   const { style, size = 6, children } = props;
 
   const classes = classNames({
-    [`is-size-${size}`]: Boolean(size),
+    [`is-size-${size}`]: true,
     'has-text-weight-semibold': true,
   });
 

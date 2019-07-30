@@ -27,9 +27,9 @@ function Button(props: ButtonProps) {
   const classes = classNames({
     button: true,
     [`is-${color}`]: true,
+    [`is-${size}`]: true,
     'is-loading': loading,
     'is-outlined': outlined,
-    [`is-${size}`]: true,
   });
 
   return (

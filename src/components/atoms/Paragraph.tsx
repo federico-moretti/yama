@@ -11,7 +11,7 @@ function Paragraph(props: ParagraphProps) {
   const { style, size = 6, children } = props;
 
   const classes = classNames({
-    [`is-size-${size}`]: Boolean(size),
+    [`is-size-${size}`]: true,
   });
 
   return (
