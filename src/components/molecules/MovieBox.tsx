@@ -8,8 +8,6 @@ import LabeledValue from './LabeledValue';
 import Image from '../atoms/Image';
 import IconButton from '../atoms/IconButton';
 
-// TODO: change "show less/more" with an icon
-
 const InfoContainer = styled.div`
   margin-top: 20px;
   display: block;
@@ -70,7 +68,7 @@ function MovieBox(props: MovieBoxProps) {
           onClick={toggleInfos}
           buttonStyle={{
             transition: 'transform ease-in 150ms',
-            transform: showInfos ? 'rotate(0deg)' : 'rotate(180deg)',
+            transform: showInfos ? 'rotate(180deg)' : 'rotate(0deg)',
           }}
         />
       </div>
